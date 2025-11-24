@@ -27,36 +27,36 @@ document.body.querySelectorAll(".btn").forEach(function (btn) {
             userInput.innerHTML += Scissor;
             randomImageputter();
         }
+        
 
     })
 })
 
 function randomImageputter() {
-    randomValue = Math.floor(Math.random() * 10)
-    if (randomValue <= 3) {
-        
+    randomValue = Math.floor(Math.random() * 3)
+    console.log(randomValue);
+    
+    if (randomValue === 0) {
         compInput.innerHTML = ""
         const Stone = `<img class="h-20 w-[132px]" src="./src/Assets/stone.webp" alt="Stone">`
-        compInput.innerHTML += Stone;
+        compInput.innerHTML = Stone;
         compChoice="Stone"
       
     }
-    else if (randomValue > 3 && randomValue <= 6) {
-        
+    else if (randomValue === 1) {
         compInput.innerHTML = ""
         const Paper = ` <img class="w-33" src="./src/Assets/paper.webp " alt="Paper">`
-        compInput.innerHTML += Paper;
+        compInput.innerHTML = Paper;
         compChoice="Paper"
         
     }
-    else if (randomValue > 6 && randomValue <= 9) {
+    else {
         compInput.innerHTML = ""
         const Scissor = `<img class="w-33" src="./src/Assets/Scissor.webp" alt="Scissor">`
-        compInput.innerHTML += Scissor;
+        compInput.innerHTML = Scissor;
         compChoice="Scissor"
     }
-
-    gameResult();
+    setTimeout(gameResult,1000)
 }
 
 function gameResult() {
@@ -66,13 +66,19 @@ function gameResult() {
         Scissor:"Paper"
     }
     if(userChoice === compChoice){
-       alert("draw");  
+      alert("draw");  
+      console.log("draw");
+      
     }
     else if(rules[userChoice]===compChoice){
-       alert("user wins");  
+      alert("user wins");  
+      console.log("user wins");
+      
     }
     else{
-       alert("comp wins");
+      alert("comp wins");
+      console.log("comp wins");
+      
     }
 
     
